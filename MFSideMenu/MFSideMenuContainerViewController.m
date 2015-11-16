@@ -555,7 +555,10 @@ typedef enum {
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-	return NO;
+    if (otherGestureRecognizer.delegate == self) {
+        return NO;
+    }
+    return YES;
 }
 
 
